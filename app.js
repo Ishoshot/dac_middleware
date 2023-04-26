@@ -12,6 +12,7 @@ const { log } = require('./utils/log')
 const uuid = require('uuid')
 
 
+
 dotenv.config()
 app.set('view engine', 'ejs')
 app.use(express.static('views'))
@@ -27,6 +28,8 @@ app.use(
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api', router);
+
+const OPEN_AI_SERVICE = process.env.OPEN_AI_SERVICE
 
 
 // General Middleware
@@ -59,7 +62,7 @@ router.post('/middleware', (req, res) => {
   }
 
   // Get Intent
-  axios.post('http://127.0.0.1:5000/api/openai/intent-recognizer', {
+  axios.post(OPEN_AI_SERVICE + '/api/openai/intent-recognizer', {
     prompt: req.body.prompt,
   }, {
     headers: {

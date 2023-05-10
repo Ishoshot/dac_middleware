@@ -10,7 +10,7 @@ const connection = new Connection()
 const router = express.Router()
 const { log } = require('./utils/log')
 const uuid = require('uuid')
-
+const { saveInMemory, getFromMemory } = require('./utils/redis')
 
 
 dotenv.config()
@@ -30,7 +30,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/api', router);
 
 const OPEN_AI_SERVICE = process.env.OPEN_AI_SERVICE
-
 
 // General Middleware
 router.use(function (req, res, next) {
@@ -54,11 +53,23 @@ router.post('/validate/token', (req, res) => {
 })
 
 
-router.post('/middleware', (req, res) => {
+router.post('/middleware', async (req, res) => {
 
   // Check for Prompt
   if (req.body.prompt == null) {
     return res.status(422).json({ code: '90', message: 'No Prompt' })
+  }
+
+  //Check if promptId is request body
+  if (req.body.promptId) {
+    // Get Prompt from Memory
+    let prompt = await getFromMemory(req.body.promptId)
+    if (prompt == null) {
+      return res.status(422).json({ code: '90', message: 'Invalid PromptId' })
+    }
+    //append new prompt to existing prompt
+    req.body.prompt = prompt + ' ' + req.body.prompt
+    console.log(req.body.prompt)
   }
 
   // Get Intent
@@ -77,7 +88,7 @@ router.post('/middleware', (req, res) => {
 })
 
 // Display logs from DB to view
-app.get('/', function (req, res) {
+router.get('/', async function (req, res) {
   con = connection.create()
   var sql = 'Select * from logs'
   con.query(sql, function (err, result) {

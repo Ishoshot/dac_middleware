@@ -1,0 +1,15 @@
+
+{"id":"ea91f34b-49bc-4fde-95d7-bf236bdad64a","type":"Outgoing","response":{"Intent":"acct_bal","AccountNumber":"3119068839"},"date":"9-5-2023 20:41:55"}
+{"id":"ea91f34b-49bc-4fde-95d7-bf236bdad64a","type":"Incoming","request":{"Intent":"acct_bal","AccountNumber":"3119068839"},"date":"9-5-2023 20:41:55"}
+{"id":"c8f38ff3-a313-4d51-bcc9-fad8f256f01e","type":"Incoming","request":{"Intent":"acct_bal","AccountNumber":"2343534756"},"date":"9-5-2023 20:51:25"}
+{"id":"c8f38ff3-a313-4d51-bcc9-fad8f256f01e","type":"Outgoing","response":{"Intent":"acct_bal","AccountNumber":"2343534756"},"date":"9-5-2023 20:51:25"}
+{"id":"5fd6bc26-94b5-4236-b365-311143c81b89","type":"Incoming","request":{"Intent":"acct_bal","AccountNumber":"2343534756"},"date":"9-5-2023 20:52:36"}
+{"id":"5fd6bc26-94b5-4236-b365-311143c81b89","type":"Outgoing","response":{"Intent":"acct_bal","AccountNumber":"2343534756"},"date":"9-5-2023 20:52:36"}
+{"id":"96537eab-4ab1-4099-9a0c-837aaa758da0","type":"Incoming","request":{"Intent":"acct_bal","AccountNumber":"2343534756"},"date":"9-5-2023 20:55:21"}
+{"id":"96537eab-4ab1-4099-9a0c-837aaa758da0","type":"Outgoing","response":{"Intent":"acct_bal","AccountNumber":"2343534756"},"date":"9-5-2023 20:55:21"}
+{"id":"085ab721-6ce3-4d9b-957d-8613d8db5508","type":"Incoming","request":{"Intent":"acct_bal","AccountNumber":"2343534756"},"date":"9-5-2023 20:56:24"}
+{"id":"085ab721-6ce3-4d9b-957d-8613d8db5508","type":"Outgoing","response":{"Intent":"acct_bal","AccountNumber":"2343534756"},"date":"9-5-2023 20:56:24"}
+{"id":"8da95cb0-c147-4f67-8b3f-0d8b58ed48de","type":"Incoming","request":{"Intent":"acct_bal","AccountNumber":"3119025892"},"date":"9-5-2023 21:34:29"}
+{"id":"8da95cb0-c147-4f67-8b3f-0d8b58ed48de","type":"Outgoing","response":{"Intent":"acct_bal","AccountNumber":"3119025892"},"date":"9-5-2023 21:34:29"}
+{"id":"65f26048-4444-414b-8f3d-299d5828e45b","type":"Incoming","request":{"Intent":"acct_bal","AccountNumber":"3119025892"},"date":"9-5-2023 21:34:29"}
+{"id":"65f26048-4444-414b-8f3d-299d5828e45b","type":"Outgoing","response":{"Intent":"acct_bal","AccountNumber":"3119025892"},"date":"9-5-2023 21:34:29"}

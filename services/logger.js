@@ -2,6 +2,8 @@ const Connection = require('../utils/Connection')
 const connection = new Connection()
 const fs = require('fs')
 const { getDate, getFileDate, isWeekend, getDateAndTime } = require('./date')
+const dotenv = require('dotenv')
+dotenv.config()
 
 class Logger {
   logToDB(level, message) {
@@ -11,12 +13,12 @@ class Logger {
     }
     //create table if it doesn't exist
     con.query(
-      'CREATE TABLE IF NOT EXISTS logs (id INT AUTO_INCREMENT PRIMARY KEY, level VARCHAR(255), message VARCHAR(255), date TIMESTAMP)',
+      `CREATE TABLE IF NOT EXISTS ${process.env.MYSQL_DB} (id INT AUTO_INCREMENT PRIMARY KEY, level VARCHAR(255), message VARCHAR(255), date TIMESTAMP)`,
       function (err, result) {
         if (err) throw err
       },
     )
-    var sql = `INSERT INTO logs (level, message, date) VALUES ('${level}', '${message}', now())`
+    var sql = `INSERT INTO ${process.env.MYSQL_DB} (level, message, date) VALUES ('${level}', '${message}', now())`
     con.query(sql, function (err, result) {
       if (err) throw err
     })
